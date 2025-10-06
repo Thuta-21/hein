@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hein Thuta</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./image/ChatGPT Image Oct 6, 2025, 07_20_59 PM.png"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/devicon@2.15.1/devicon.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-white">
+    <nav
+      id="navbar"
+      class="glass-nav fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-full px-2 sm:px-4 py-2 shadow-md"
+    >
+      <div class="container mx-auto">
+        <div class="flex justify-center items-center p-2">
+          <ul class="flex items-center space-x-1 sm:space-x-2">
+            <li>
+              <a
+                href="#home"
+                class="text-gray-800 hover:text-black px-3 sm:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/90 text-sm sm:text-base"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="text-gray-800 hover:text-black px-3 sm:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/90 text-sm sm:text-base"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="text-gray-800 hover:text-black px-3 sm:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/90 text-sm sm:text-base"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-gray-800 hover:text-black px-3 sm:px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/90 text-sm sm:text-base"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center text-center bg-white py-20 relative overflow-hidden"
+    >
+      <canvas
+        id="dot-background"
+        class="absolute top-0 left-0 w-full h-full z-0"
+      ></canvas>
+      <div
+        class="container mx-auto px-4 flex flex-col items-center relative z-10"
+      >
+        <img
+          src="./image/ChatGPT Image Oct 6, 2025, 07_20_59 PM.png"
+          alt="Profile Picture"
+          class="w-36 h-36 rounded-full object-cover border-4 border-white shadow-lg mb-6 scroll-animate"
+        />
+        <h1
+          class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 scroll-animate"
+          style="transition-delay: 100ms"
+        >
+          Hein Thuta
+        </h1>
+        <p
+          class="text-md md:text-2xl font-light text-black mb-4 scroll-animate"
+          style="transition-delay: 200ms"
+        >
+          Fullstack Developer
+        </p>
+        <p
+          class="max-w-2xl text-gray-600 mb-8 leading-relaxed scroll-animate"
+          style="transition-delay: 300ms"
+        >
+          I craft elegant and efficient web solutions from front-end to
+          back-end. Passionate about creating seamless user experiences with
+          modern technologies.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 scroll-animate"
+          style="transition-delay: 400ms"
+        >
+          <a
+            href="#about"
+            class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg flex items-center justify-center"
+          >
+            <i class="fas fa-user mr-2"></i> About Me
+          </a>
+          <a
+            href="#projects"
+            class="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 border border-gray-200 shadow-lg flex items-center justify-center"
+          >
+            <i class="fas fa-briefcase mr-2"></i> Projects
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-24 lg:p-[100px] overflow-hidden">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-left mb-12 scroll-animate">
+          About Me
+        </h2>
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start md:space-x-12 scroll-animate"
+        >
+          <img
+            src="./image/ChatGPT Image Oct 6, 2025, 07_20_59 PM.png"
+            alt="My Photo"
+            class="w-48 h-48 rounded-2xl object-cover flex-shrink-0 mb-8 md:mb-0 shadow-xl"
+          />
+          <div class="text-center md:text-left">
+            <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+              Hello! I'm Hein, a dedicated full-stack developer with a love for
+              building beautiful and functional web applications. With over 5
+              years of experience in the industry, I have honed my skills in
+              both front-end and back-end development, allowing me to bring
+              ideas to life from concept to deployment.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed text-justify">
+              My expertise lies in turning complex problems into simple,
+              intuitive designs. I thrive in collaborative environments and am
+              always eager to learn new technologies to stay at the forefront of
+              web development.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-20 text-center">
+          <div
+            id="skills-grid"
+            class="max-w-4xl mx-auto scroll-animate bg-blue-100 p-[60px] rounded-2xl"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#E44D26]"
+                    ><i class="devicon-html5-plain colored text-xl"></i>
+                    HTML5</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#E44D26] h-2 rounded-full"
+                    data-width="80%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#1572B6]"
+                    ><i class="devicon-css3-plain colored text-xl"></i>
+                    CSS3</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#1572B6] h-2 rounded-full"
+                    data-width="80%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#F7DF1E]"
+                    ><i class="devicon-javascript-plain colored text-xl"></i>
+                    JavaScript</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">70%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#F7DF1E] h-2 rounded-full"
+                    data-width="70%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#61DBFB]"
+                    ><i class="devicon-react-original colored text-xl"></i>
+                    React</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">90%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#61DBFB] h-2 rounded-full"
+                    data-width="90%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#38BDF8]"
+                    ><i class="devicon-tailwindcss-plain colored text-xl"></i>
+                    Tailwind CSS</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">90%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#38BDF8] h-2 rounded-full"
+                    data-width="90%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill-item text-left">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="font-semibold text-[#83CD29]"
+                    ><i class="devicon-nodejs-plain colored text-xl"></i>
+                    Node.js</span
+                  >
+                  <span class="text-sm font-semibold text-gray-600">90%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="skill-progress-fill bg-[#83CD29] h-2 rounded-full"
+                    data-width="90%"
+                    style="width: 0"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-8 lg:p-[100px] bg-gray-50 overflow-hidden">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 scroll-animate">
+          My Projects
+        </h2>
+
+        <!-- Project Grid -->
+        <div
+          id="project-grid"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Project 1 -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 scroll-animate"
+          >
+            <img
+              src="./image/Screenshot 2025-10-06 224114.png"
+              alt="Project 1"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Generation Clothing E-commerce Platform</h3>
+              <p class="text-gray-600 mb-4">
+                A modern e-commerce solution with seamless checkout experience.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >React</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Firebase</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Nosql database</span
+                >
+              </div>
+              <a
+                href="https://generation-clothings.netlify.app/"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 scroll-animate"
+          >
+            <img
+              src="./image/Screenshot 2025-10-06 224247.png"
+              alt="Project 2"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Smart Brain (The Ai Project) </h3>
+              <p class="text-gray-600 mb-4">
+                Ai Project that detect the faces with authentication system.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >React</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Clarifai API</span
+                >
+              </div>
+              <a
+                href="https://smarti-brain.netlify.app/"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 scroll-animate"
+          >
+            <img
+              src="https://placehold.co/600x400/111827/ffffff?text=Portfolio"
+              alt="Project 3"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Portfolio Website</h3>
+              <p class="text-gray-600 mb-4">
+                A personal portfolio website built with a minimalist design
+                approach.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >HTML</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >JavaScript</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hidden Projects -->
+          <div
+            class="hidden bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 extra-project"
+          >
+            <img
+              src="https://placehold.co/600x400/111827/ffffff?text=Blog+App"
+              alt="Project 4"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Blog Application</h3>
+              <p class="text-gray-600 mb-4">
+                A dynamic blog app built with Node.js and EJS templates.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >Express</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >MongoDB</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="hidden bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 extra-project"
+          >
+            <img
+              src="https://placehold.co/600x400/111827/ffffff?text=Weather+App"
+              alt="Project 5"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Weather App</h3>
+              <p class="text-gray-600 mb-4">
+                A weather app using OpenWeather API with modern UI.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >JavaScript</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >API</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >HTML/CSS</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="hidden bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 extra-project"
+          >
+            <img
+              src="https://placehold.co/600x400/111827/ffffff?text=Weather+App"
+              alt="Project 5"
+              class="w-full h-56 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Weather App</h3>
+              <p class="text-gray-600 mb-4">
+                A weather app using OpenWeather API with modern UI.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >JavaScript</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >API</span
+                >
+                <span
+                  class="bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full"
+                  >HTML/CSS</span
+                >
+              </div>
+              <a
+                href="#"
+                class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center"
+              >
+                View Project <i class="fas fa-arrow-right ml-2 arrow-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Projects Button -->
+        <div class="text-center mt-10">
+          <button
+            id="toggle-projects"
+            class="inline-flex items-center text-gray-800 font-semibold px-6 py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition"
+          >
+            More Projects
+            <i
+              class="fas fa-chevron-down ml-2 transition-transform duration-300"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-24 overflow-hidden">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-4 scroll-animate">Get In Touch</h2>
+        <p
+          class="text-gray-600 max-w-lg mx-auto mb-12 scroll-animate"
+          style="transition-delay: 150ms"
+        >
+          I'm currently available for freelance work. If you have a project in
+          mind or just want to say hello, feel free to reach out!
+        </p>
+        <div
+          class="max-w-xl mx-auto scroll-animate"
+          style="transition-delay: 300ms"
+        >
+          <form action="https://formspree.io/f/xyznpvlj" method="POST" class="space-y-6">
+            <div>
+              <input
+                required
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your Name"
+                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black transition"
+              />
+            </div>
+            <div>
+              <input
+                required
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your Email"
+                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black transition"
+              />
+            </div>
+            <div>
+              <textarea
+                required
+                name="message"
+                id="message"
+                rows="5"
+                placeholder="Your Message"
+                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-black transition"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="bg-black text-white px-10 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-white text-gray-800 py-12 border-t">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left space-y-8 md:space-y-0"
+        >
+          <div>
+            <h3 class="text-2xl font-bold mb-2">Hein Thuta</h3>
+            <p class="text-gray-600 mb-4">
+              A Fullstack Developer crafting modern and responsive web
+              experiences.
+            </p>
+            <div class="flex justify-start space-x-4">
+              <a
+                href="https://github.com/Thuta-21"
+                class="text-gray-500 hover:text-black transition text-lg"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/hein-thuta-452541382/"
+                class="text-gray-500 hover:text-black transition text-lg"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-500 hover:text-black transition text-lg"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://t.me/codewithhein"
+                class="text-gray-500 hover:text-black transition text-lg"
+                ><i class="fab fa-telegram"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+            <ul>
+              <li class="mb-2">
+                <a
+                  href="#home"
+                  class="text-gray-600 hover:text-black transition"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#about"
+                  class="text-gray-600 hover:text-black transition"
+                  >About</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#projects"
+                  class="text-gray-600 hover:text-black transition"
+                  >Projects</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-lg mb-4">Contact</h4>
+            <p class="text-gray-600">
+              Have questions or want to work together?
+            </p>
+            <a
+              href="#contact"
+              class="view-project-link text-black font-semibold hover:text-gray-700 flex items-center justify-start mt-2"
+              >Get in touch <i class="fas fa-arrow-right ml-2 arrow-icon"></i
+            ></a>
+          </div>
+        </div>
+        <div
+          class="text-center text-gray-500 pt-8 mt-8 border-t border-gray-200"
+        >
+          <p>&copy; 2025 Hein. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <button id="scrollToTop" aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15l7-7 7 7"
+        />
+      </svg>
+    </button>
+    <script src="./index.js"></script>
+  </body>
+</html>
