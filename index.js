@@ -142,34 +142,33 @@ toggleBtn.addEventListener("click", () => {
   toggleBtn.appendChild(icon);
 });
 
-// DYNAMIC NAVBAR LINK HIGHLIGHT
+// DYNAMIC NAVBAR LINK HIGHLIGHT (Corrected)
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
 const observerOptions = {
-  threshold: 0.3,
-  rootMargin: "-100px 0px 0px 0px",
+  // This margin creates a "trigger area" at 40% from the top of the viewport.
+  // A section is "intersecting" only when its top edge is in the top 40% of the screen.
+  rootMargin: "0px 0px -60% 0px",
+  threshold: 0,
 };
 
-const sectionObserver = new IntersectionObserver((entries) => {
+const sectionObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
-    if (!entry.isIntersecting) {
-      return;
-    }
+    // Get the navigation link corresponding to the section
+    const id = entry.target.getAttribute("id");
+    const navLink = document.querySelector(`nav a[href="#${id}"]`);
 
-    // Remove the active class from all links first
-    navLinks.forEach((link) => {
-      link.classList.remove("bg-white/90", "font-semibold", "text-black");
-    });
+    if (entry.isIntersecting) {
+      // First, remove the active class from all links
+      navLinks.forEach((link) => {
+        link.classList.remove("bg-white/90", "font-semibold", "text-black");
+      });
 
-    // Find the link that corresponds to the currently visible section
-    const activeLink = document.querySelector(
-      `nav a[href="#${entry.target.id}"]`
-    );
-
-    // Add the active classes to that one link
-    if (activeLink) {
-      activeLink.classList.add("bg-white/90", "font-semibold", "text-black");
+      // Then, add the active class to the correct one
+      if (navLink) {
+        navLink.classList.add("bg-white/90", "font-semibold", "text-black");
+      }
     }
   });
 }, observerOptions);
