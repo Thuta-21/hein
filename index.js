@@ -146,26 +146,37 @@ toggleBtn.addEventListener("click", () => {
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+const observerOptions = {
+  threshold: 0.3,
+  rootMargin: "-100px 0px 0px 0px",
+};
 
-      navLinks.forEach((link) =>
-        link.classList.remove("bg-white/90", "font-semibold", "text-black")
-      );
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    }
 
-      const activeLink = document.querySelector(
-        `nav a[href="#${entry.target.id}"]`
-      );
-      if (activeLink)
-        activeLink.classList.add("bg-white/90", "font-semibold", "text-black");
+    // Remove the active class from all links first
+    navLinks.forEach((link) => {
+      link.classList.remove("bg-white/90", "font-semibold", "text-black");
     });
-  },
-  { threshold: 0.6 }
-);
 
-sections.forEach((section) => sectionObserver.observe(section));
+    // Find the link that corresponds to the currently visible section
+    const activeLink = document.querySelector(
+      `nav a[href="#${entry.target.id}"]`
+    );
+
+    // Add the active classes to that one link
+    if (activeLink) {
+      activeLink.classList.add("bg-white/90", "font-semibold", "text-black");
+    }
+  });
+}, observerOptions);
+
+sections.forEach((section) => {
+  sectionObserver.observe(section);
+});
 
 // showTgContact
 const showTgContact = document.getElementsByClassName('showTgContact')[0];
