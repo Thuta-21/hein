@@ -1,103 +1,81 @@
-// Navbar scroll animation
+//NAVBAR SCROLL ANIMATION
 let lastScrollTop = 0;
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop && scrollTop > 100) {
-    navbar.classList.add("nav-hidden");
+    navbar.classList.add("nav-scroll-style");
   } else {
-    navbar.classList.remove("nav-hidden");
+    navbar.classList.remove("nav-scroll-style");
   }
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+  lastScrollTop = Math.max(scrollTop, 0);
 });
 
+// SCROLL TO TOP BUTTON
 const scrollBtn = document.getElementById("scrollToTop");
 
 window.addEventListener("scroll", () => {
-  const scrolledToBottom =
-    window.innerHeight + window.scrollY >= document.body.offsetHeight - 200;
+  const isNearBottom =
+    window.innerHeight + window.scrollY >=
+    document.body.offsetHeight - 200;
 
-  if (scrolledToBottom) {
-    scrollBtn.classList.add("show");
-  } else {
-    scrollBtn.classList.remove("show");
-  }
+  scrollBtn.classList.toggle("show", isNearBottom);
 });
 
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// On-scroll animations
+//ON-SCROLL ANIMATIONS (Fade-in, Skills)
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
+      if (!entry.isIntersecting) return;
 
-        // CHANGE: Added logic to animate skill bars when they become visible.
-        if (entry.target.id === "skills-grid") {
-          const skillBars = entry.target.querySelectorAll(
-            ".skill-progress-fill"
-          );
-          skillBars.forEach((bar) => {
-            // Add transition class via JS to ensure it animates on scroll
-            bar.style.transition = "width 1s ease-in-out";
-            bar.style.width = bar.dataset.width;
-          });
-        }
+      entry.target.classList.add("is-visible");
+
+      // Animate skill bars
+      if (entry.target.id === "skills-grid") {
+        const skillBars = entry.target.querySelectorAll(".skill-progress-fill");
+        skillBars.forEach((bar) => {
+          bar.style.transition = "width 1s ease-in-out";
+          bar.style.width = bar.dataset.width;
+        });
       }
     });
   },
-  {
-    threshold: 0.2, // A bit more of the section should be visible before animating
-  }
+  { threshold: 0.2 }
 );
 
-const targets = document.querySelectorAll(".scroll-animate");
-targets.forEach((target) => {
-  observer.observe(target);
-});
+document.querySelectorAll(".scroll-animate").forEach((el) => observer.observe(el));
 
-// CHANGE: Added hover animation for the new skills section.
+
+// SKILL BAR HOVER ANIMATION
 document.querySelectorAll(".skill-item").forEach((item) => {
   item.addEventListener("mouseover", () => {
     const bar = item.querySelector(".skill-progress-fill");
     const targetWidth = bar.dataset.width;
 
-    // Temporarily remove transition for an instant reset to 0%
+    // Reset animation
     bar.style.transition = "none";
     bar.style.width = "0%";
-
-    // This is a trick to force the browser to repaint, making the reset happen instantly
-    void bar.offsetWidth;
-
-    // Re-apply the transition and animate to the target width
+    void bar.offsetWidth; // trigger reflow
     bar.style.transition = "width 0.8s ease-in-out";
     bar.style.width = targetWidth;
   });
 });
 
-// Interactive dot background (No Changes)
+//INTERACTIVE DOT BACKGROUND
+
 const canvas = document.getElementById("dot-background");
 const ctx = canvas.getContext("2d");
-let mouse = { x: null, y: null };
-
-window.addEventListener("mousemove", (event) => {
-  mouse.x = event.x;
-  mouse.y = event.y;
-});
-
-window.addEventListener("mouseout", () => {
-  mouse.x = null;
-  mouse.y = null;
-});
-
+const mouse = { x: null, y: null };
 let dots = [];
+
 const dotConfig = {
-  count: 0,
   radius: 1.5,
   spacing: 40,
   hoverRadius: 200,
@@ -105,14 +83,23 @@ const dotConfig = {
   hoverColor: "rgba(0, 0, 0, 0.6)",
 };
 
+// Mouse tracking
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.x;
+  mouse.y = e.y;
+});
+window.addEventListener("mouseout", () => (mouse.x = mouse.y = null));
+
+// Setup and draw
 function setupCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = document.getElementById("home").offsetHeight;
+
   dots = [];
   const cols = Math.floor(canvas.width / dotConfig.spacing);
   const rows = Math.floor(canvas.height / dotConfig.spacing);
-  dotConfig.count = cols * rows;
-  for (let i = 0; i < dotConfig.count; i++) {
+
+  for (let i = 0; i < cols * rows; i++) {
     const x = (i % cols) * dotConfig.spacing + dotConfig.spacing / 2;
     const y = Math.floor(i / cols) * dotConfig.spacing + dotConfig.spacing / 2;
     dots.push({ x, y });
@@ -122,16 +109,16 @@ function setupCanvas() {
 function drawDots() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   dots.forEach((dot) => {
-    let dx = mouse.x - dot.x;
-    let dy = mouse.y - dot.y;
-    let distance = Math.sqrt(dx * dx + dy * dy);
+    const dx = mouse.x - dot.x;
+    const dy = mouse.y - dot.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
     ctx.beginPath();
-    ctx.arc(dot.x, dot.y, dotConfig.radius, 0, Math.PI * 2, false);
-    if (distance < dotConfig.hoverRadius) {
-      ctx.fillStyle = dotConfig.hoverColor;
-    } else {
-      ctx.fillStyle = dotConfig.baseColor;
-    }
+    ctx.arc(dot.x, dot.y, dotConfig.radius, 0, Math.PI * 2);
+    ctx.fillStyle =
+      distance < dotConfig.hoverRadius
+        ? dotConfig.hoverColor
+        : dotConfig.baseColor;
     ctx.fill();
   });
 }
@@ -141,53 +128,59 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+// PROJECT TOGGLE BUTTON
 const toggleBtn = document.getElementById("toggle-projects");
 const extraProjects = document.querySelectorAll(".extra-project");
 const icon = toggleBtn.querySelector("i");
 
 toggleBtn.addEventListener("click", () => {
+  const showingMore = toggleBtn.textContent.includes("More");
+
   extraProjects.forEach((proj) => proj.classList.toggle("hidden"));
   icon.classList.toggle("rotate-180");
-  toggleBtn.textContent = toggleBtn.textContent.includes("More")
-    ? "Show Less"
-    : "More Projects";
+  toggleBtn.textContent = showingMore ? "Show Less" : "More Projects";
   toggleBtn.appendChild(icon);
 });
 
-// Dynamic navbar active link highlight
+// DYNAMIC NAVBAR LINK HIGHLIGHT
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // remove active style from all
-        navLinks.forEach((link) => {
-          link.classList.remove("bg-white/90", "font-semibold", "text-black");
-        });
+      if (!entry.isIntersecting) return;
 
-        // add active style to the current one
-        const activeLink = document.querySelector(
-          `nav a[href="#${entry.target.id}"]`
-        );
-        if (activeLink) {
-          activeLink.classList.add(
-            "bg-white/90",
-            "font-semibold",
-            "text-black"
-          );
-        }
-      }
+      navLinks.forEach((link) =>
+        link.classList.remove("bg-white/90", "font-semibold", "text-black")
+      );
+
+      const activeLink = document.querySelector(
+        `nav a[href="#${entry.target.id}"]`
+      );
+      if (activeLink)
+        activeLink.classList.add("bg-white/90", "font-semibold", "text-black");
     });
   },
-  {
-    threshold: 0.6, // 60% of the section must be visible to count as active
-  }
+  { threshold: 0.6 }
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
 
+// showTgContact
+const showTgContact = document.getElementsByClassName('showTgContact')[0];
+const forShow1 = document.getElementsByClassName('forShow')[0];
+const forShow2 = document.getElementsByClassName('forShow')[1];
+
+const show = () => {
+  showTgContact.classList.add('hide');
+  forShow1.classList.remove('hide');
+  forShow2.classList.remove('hide');
+}
+
+showTgContact.addEventListener('click', show);
+
+//INITIALIZATION
 setupCanvas();
 animate();
 window.addEventListener("resize", setupCanvas);

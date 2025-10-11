@@ -12,8 +12,8 @@ body {
   transition: transform 0.4s ease-in-out, top 0.4s ease-in-out;
 }
 
-.nav-hidden {
-  transform: translate(-50%, -20%);
+.nav-scroll-style {
+  transform: translate(-50%, -15%) !important;
 }
 
 nav a.bg-white\/90 {
@@ -144,4 +144,20 @@ nav a.bg-white\/90 {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.hide {
+  display: none;
+}
+
+.notice {
+  font-size: 15px;
+  color: rgb(252, 88, 88);
+  text-align: justify;
+}
+
+@media only screen and (max-width: 420px) {
+  .isMob {
+    display: block;
+  }
 }
