@@ -29,7 +29,7 @@ scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-//ON-SCROLL ANIMATIONS (Fade-in, Skills)
+//ON-SCROLL ANIMATIONS
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -52,7 +52,6 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".scroll-animate").forEach((el) => observer.observe(el));
 
-
 // SKILL BAR HOVER ANIMATION
 document.querySelectorAll(".skill-item").forEach((item) => {
   item.addEventListener("mouseover", () => {
@@ -69,7 +68,6 @@ document.querySelectorAll(".skill-item").forEach((item) => {
 });
 
 //INTERACTIVE DOT BACKGROUND
-
 const canvas = document.getElementById("dot-background");
 const ctx = canvas.getContext("2d");
 const mouse = { x: null, y: null };
@@ -142,13 +140,11 @@ toggleBtn.addEventListener("click", () => {
   toggleBtn.appendChild(icon);
 });
 
-// DYNAMIC NAVBAR LINK HIGHLIGHT (Corrected)
+// DYNAMIC NAVBAR LINK HIGHLIGHT
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
 const observerOptions = {
-  // This margin creates a "trigger area" at 40% from the top of the viewport.
-  // A section is "intersecting" only when its top edge is in the top 40% of the screen.
   rootMargin: "0px 0px -60% 0px",
   threshold: 0,
 };
@@ -160,12 +156,12 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
     const navLink = document.querySelector(`nav a[href="#${id}"]`);
 
     if (entry.isIntersecting) {
-      // First, remove the active class from all links
+      // remove the active class from all links
       navLinks.forEach((link) => {
         link.classList.remove("bg-white/90", "font-semibold", "text-black");
       });
 
-      // Then, add the active class to the correct one
+      // add the active class to the correct one
       if (navLink) {
         navLink.classList.add("bg-white/90", "font-semibold", "text-black");
       }
